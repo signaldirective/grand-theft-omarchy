@@ -1,0 +1,454 @@
+/*
+ * Grand Theft Omarchy — GTK 3.0
+ *
+ * Palette anchors: the neon VI gradient in backgrounds/01.png and the
+ * indigo-to-gold sunset in backgrounds/03.png.
+ */
+
+/* Palette */
+@define-color accent #ff5ccc;
+@define-color accent_hover #ff8adb;
+@define-color accent_fg #08050d;
+@define-color selection #51438f;
+@define-color selection_fg #ffe0a8;
+
+@define-color background #08050d;
+@define-color surface #05030a;
+@define-color elevated #1e1330;
+@define-color foreground #ffd0c0;
+@define-color muted #8a638f;
+@define-color border alpha(@muted, 0.55);
+@define-color header_border alpha(@accent, 0.28);
+
+@define-color red #f04f87;
+@define-color yellow #ffc06e;
+@define-color orange #f28b78;
+@define-color green #8fc6a0;
+@define-color cyan #68b9d4;
+@define-color blue #5f7fe0;
+@define-color magenta #ed4dcf;
+
+@define-color bright_red #ff789c;
+@define-color bright_yellow #ffd48a;
+@define-color bright_green #b9e5bb;
+@define-color bright_cyan #89d5e8;
+@define-color bright_blue #849dff;
+@define-color bright_magenta #ff8adb;
+
+/* Adwaita / GTK named colors */
+@define-color accent_bg_color @accent;
+@define-color accent_fg_color @accent_fg;
+@define-color accent_color @accent_hover;
+@define-color destructive_bg_color @red;
+@define-color destructive_fg_color @accent_fg;
+@define-color success_bg_color @green;
+@define-color success_fg_color @accent_fg;
+@define-color warning_bg_color @yellow;
+@define-color warning_fg_color @accent_fg;
+@define-color error_bg_color @red;
+@define-color error_fg_color @accent_fg;
+
+@define-color window_bg_color @background;
+@define-color window_fg_color @foreground;
+@define-color view_bg_color @surface;
+@define-color view_fg_color @foreground;
+@define-color headerbar_bg_color #020206;
+@define-color headerbar_fg_color @foreground;
+@define-color headerbar_border_color @header_border;
+@define-color headerbar_backdrop_color @background;
+@define-color sidebar_bg_color #020206;
+@define-color sidebar_fg_color @foreground;
+@define-color sidebar_backdrop_color @background;
+@define-color sidebar_border_color @header_border;
+@define-color card_bg_color @elevated;
+@define-color card_fg_color @foreground;
+@define-color dialog_bg_color @background;
+@define-color dialog_fg_color @foreground;
+@define-color popover_bg_color @elevated;
+@define-color popover_fg_color @foreground;
+@define-color shade_color alpha(#020206, 0.8);
+
+/* GTK 3 compatibility names */
+@define-color theme_fg_color @foreground;
+@define-color theme_text_color @foreground;
+@define-color theme_bg_color @background;
+@define-color theme_base_color @surface;
+@define-color theme_selected_bg_color @selection;
+@define-color theme_selected_fg_color @selection_fg;
+@define-color insensitive_bg_color #020206;
+@define-color insensitive_fg_color @muted;
+@define-color insensitive_base_color @surface;
+@define-color theme_unfocused_fg_color @muted;
+@define-color theme_unfocused_text_color @foreground;
+@define-color theme_unfocused_bg_color @background;
+@define-color theme_unfocused_base_color @surface;
+@define-color theme_unfocused_selected_bg_color @selection;
+@define-color theme_unfocused_selected_fg_color @selection_fg;
+@define-color unfocused_borders alpha(@muted, 0.3);
+@define-color warning_color @yellow;
+@define-color error_color @red;
+@define-color success_color @green;
+@define-color destructive_color @red;
+@define-color content_view_bg @surface;
+@define-color text_view_bg @surface;
+
+/* Base */
+* {
+  padding: 0;
+  outline-color: alpha(@accent, 0.55);
+  outline-style: solid;
+  outline-offset: -2px;
+  outline-width: 0;
+  -gtk-secondary-caret-color: @accent;
+}
+
+*:focus {
+  outline-width: 1px;
+}
+
+window,
+.background {
+  color: @foreground;
+  background-color: @background;
+}
+
+window:backdrop,
+.background:backdrop {
+  color: @muted;
+  background-color: @background;
+}
+
+*:disabled {
+  color: @muted;
+  -gtk-icon-effect: dim;
+}
+
+.gtkstyle-fallback {
+  color: @foreground;
+  background-color: @background;
+}
+
+.gtkstyle-fallback:hover {
+  background-color: @elevated;
+}
+
+.gtkstyle-fallback:active,
+.gtkstyle-fallback:selected {
+  color: @selection_fg;
+  background-color: @selection;
+}
+
+/* Text and views */
+label,
+.view,
+iconview,
+textview text,
+treeview.view {
+  color: @foreground;
+}
+
+label:disabled,
+.view:disabled,
+iconview:disabled,
+textview text:disabled,
+treeview.view:disabled {
+  color: @muted;
+}
+
+.view,
+iconview,
+textview text,
+treeview.view {
+  background-color: @surface;
+}
+
+.view:selected,
+iconview:selected,
+treeview.view:selected,
+textview text selection,
+label selection,
+entry selection {
+  color: @selection_fg;
+  background-color: @selection;
+}
+
+rubberband,
+.rubberband,
+flowbox rubberband,
+treeview.view rubberband {
+  border: 1px solid @accent;
+  background-color: alpha(@accent, 0.22);
+}
+
+/* Header bars and sidebars */
+headerbar,
+.titlebar {
+  min-height: 42px;
+  padding: 0 6px;
+  color: @headerbar_fg_color;
+  background-color: @headerbar_bg_color;
+  border: none;
+  border-bottom: 1px solid @headerbar_border_color;
+  box-shadow: none;
+}
+
+headerbar .title,
+.titlebar .title {
+  font-weight: bold;
+}
+
+headerbar .titlebutton,
+.titlebar .titlebutton {
+  padding: 6px;
+  color: @foreground;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+headerbar .titlebutton:hover,
+.titlebar .titlebutton:hover {
+  color: @accent_fg;
+  background-color: @accent;
+  border-color: @accent;
+}
+
+sidebar,
+.sidebar,
+stacksidebar {
+  color: @sidebar_fg_color;
+  background-color: @sidebar_bg_color;
+}
+
+sidebar row,
+.sidebar row,
+stacksidebar row {
+  padding: 7px 10px;
+  border-radius: 6px;
+}
+
+sidebar row:hover,
+.sidebar row:hover,
+stacksidebar row:hover {
+  background-color: alpha(@accent, 0.14);
+}
+
+sidebar row:selected,
+.sidebar row:selected,
+stacksidebar row:selected {
+  color: @selection_fg;
+  background-color: @selection;
+}
+
+/* Entries and buttons */
+entry,
+spinbutton {
+  min-height: 24px;
+  padding: 5px 8px;
+  color: @foreground;
+  background-color: @surface;
+  border: 1px solid @border;
+  border-radius: 6px;
+  caret-color: @accent;
+}
+
+entry:focus,
+spinbutton:focus {
+  border-color: @accent;
+  box-shadow: inset 0 0 0 1px @accent;
+}
+
+button {
+  min-height: 24px;
+  min-width: 16px;
+  padding: 5px 10px;
+  color: @foreground;
+  background-color: @surface;
+  border: 1px solid @border;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+button:hover {
+  color: @accent_fg;
+  background-color: @accent_hover;
+  border-color: @accent_hover;
+}
+
+button:active,
+button:checked,
+button.suggested-action {
+  color: @accent_fg;
+  background-color: @accent;
+  border-color: @accent;
+}
+
+button.destructive-action {
+  color: @accent_fg;
+  background-color: @red;
+  border-color: @red;
+}
+
+button.flat,
+button.flat:hover {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+button.flat:hover {
+  color: @accent_hover;
+}
+
+/* Checkboxes, radios, and switches */
+check,
+radio {
+  min-width: 16px;
+  min-height: 16px;
+  color: @foreground;
+  background-color: @surface;
+  border: 2px solid @border;
+  border-radius: 4px;
+}
+
+radio {
+  border-radius: 50%;
+}
+
+check:checked,
+radio:checked {
+  color: @accent_fg;
+  background-color: @accent;
+  border-color: @accent;
+}
+
+switch {
+  min-width: 44px;
+  min-height: 24px;
+  background-color: @surface;
+  border: 1px solid @border;
+  border-radius: 12px;
+}
+
+switch slider {
+  min-width: 20px;
+  min-height: 20px;
+  margin: 1px;
+  background-color: @muted;
+  border: 1px solid @border;
+  border-radius: 10px;
+}
+
+switch:checked {
+  background-color: @accent;
+  border-color: @accent;
+}
+
+switch:checked slider {
+  background-color: @accent_fg;
+  border-color: @accent_fg;
+}
+
+/* Scales, progress, and scrollbars */
+progressbar trough,
+scale trough {
+  background-color: #020206;
+  border: 1px solid @border;
+  border-radius: 6px;
+}
+
+progressbar progress,
+scale highlight {
+  background-color: @accent;
+  border-radius: 5px;
+}
+
+scale slider {
+  min-width: 16px;
+  min-height: 16px;
+  background-color: @surface;
+  border: 2px solid @accent;
+  border-radius: 50%;
+}
+
+scrollbar trough {
+  background-color: #020206;
+}
+
+scrollbar slider {
+  min-width: 8px;
+  min-height: 8px;
+  background-color: @muted;
+  border-radius: 8px;
+}
+
+scrollbar slider:hover {
+  background-color: @accent;
+}
+
+/* Menus, popovers, notebooks, and tooltips */
+menu,
+popover.background,
+.popover,
+tooltip {
+  color: @foreground;
+  background-color: @elevated;
+  border: 1px solid @border;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px alpha(#000000, 0.45);
+}
+
+menuitem,
+modelbutton {
+  min-height: 28px;
+  padding: 6px 10px;
+}
+
+menuitem:hover,
+modelbutton:hover {
+  color: @selection_fg;
+  background-color: @selection;
+}
+
+notebook > header {
+  background-color: @headerbar_bg_color;
+  border-color: @headerbar_border_color;
+}
+
+notebook > header > tabs > tab {
+  padding: 7px 12px;
+  color: @muted;
+}
+
+notebook > header > tabs > tab:checked {
+  color: @foreground;
+  background-color: @selection;
+  border-bottom: 2px solid @accent;
+}
+
+link,
+*:link {
+  color: @bright_cyan;
+}
+
+*:visited {
+  color: @bright_magenta;
+}
+
+infobar {
+  color: @foreground;
+  background-color: @elevated;
+  border: 1px solid @border;
+}
+
+infobar.info {
+  border-color: @blue;
+}
+
+infobar.warning {
+  border-color: @yellow;
+}
+
+infobar.error {
+  border-color: @red;
+}

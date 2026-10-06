@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Grand Theft Omarchy
+Comment=Neon VI gradients over a midnight violet GTK theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Grand-Theft-Omarchy

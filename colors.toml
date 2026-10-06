@@ -1,0 +1,45 @@
+# Grand Theft Omarchy
+#
+# Palette anchors:
+# - backgrounds/03.png: indigo sky, mauve silhouettes, and the peach/gold sunset
+# - backgrounds/01.png: the blue -> violet -> hot-pink -> gold gradient inside VI
+
+mode = "dark"
+
+# VI's hot-pink center, with a sunset-gold active border
+accent = "#ff5ccc"
+selection = "#51438f"
+muted = "#8a638f"
+
+# The black field around VI, shaded with a subtle purple tint
+background = "#08050d"
+dark_background = "#05030a"
+darker_background = "#020206"
+lighter_background = "#1e1330"
+
+# Warm, pale text keeps the terminal readable without losing the sunset feel
+foreground = "#ffd0c0"
+dark_foreground = "#8f7794"
+light_foreground = "#ffc0c0"
+bright_foreground = "#ffe0a8"
+
+# VI / sunset ANSI palette
+red = "#f04f87"
+yellow = "#ffc06e"
+orange = "#f28b78"
+green = "#8fc6a0"
+cyan = "#68b9d4"
+blue = "#5f7fe0"
+magenta = "#ed4dcf"
+brown = "#8e5c54"
+
+bright_red = "#ff789c"
+bright_yellow = "#ffd48a"
+bright_green = "#b9e5bb"
+bright_cyan = "#89d5e8"
+bright_blue = "#849dff"
+bright_magenta = "#ff8adb"
+
+# The VI outline runs from neon magenta into the gold lower edge.
+hyprland_active_border = "rgba(ff4cd4ee) rgba(ffb46cee)"
+hyprland_inactive_border = "rgba(5f3b6aaa)"

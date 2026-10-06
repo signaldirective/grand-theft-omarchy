@@ -1,0 +1,193 @@
+//        ▄▄▄▄▄  ▄▄▄   ▄▄▄▄ ▄▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄ ▄▄▄▄▄▄ ▄▄▄▄ ▄▄ ▄▄
+//        ██▄▄  ██▀██ ███▄▄   ██   ██▄▄  ██▄▄    ██  ██▀▀▀ ██▄██
+//        ██    ██▀██ ▄▄██▀   ██   ██    ██▄▄▄   ██  ▀████ ██ ██
+//
+//                               by
+//
+// ░█▀▀░▀█▀░█▀▀░█▀█░█▀█░█░░░░░░░█░░░█░░░█▀▄░▀█▀░█▀▄░█▀▀░█▀▀░▀█▀░▀█▀░█░█░█▀▀
+// ░▀▀█░░█░░█░█░█░█░█▀█░█░░░░░▄▀░░▄▀░░░░█░█░░█░░█▀▄░█▀▀░█░░░░█░░░█░░▀▄▀░█▀▀
+// ░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░░░▀░░░▀░░░░░▀▀░░▀▀▀░▀░▀░▀▀▀░▀▀▀░░▀░░▀▀▀░░▀░░▀▀▀
+
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+   "type": "file",
+  "source": "~/.config/fastfetch/vi.txt",
+   "color": { "1": "cyan",
+              "2": "blue",
+              "3": "magenta",
+              "4": "yellow" },
+        "padding": {
+           "top": 0,
+            "left": 0,
+            "right": 2
+        }
+    },
+"display": {
+        "separator": " ",
+        "key": {
+            "type": "string"
+        },
+           "bar": {
+            "border": {
+                "left": "\uee00",
+                "leftElapsed": "\uee03",
+                "right": "\uee02",
+                "rightElapsed": "\uee05"
+            },
+              "char": {
+                "total": "\uee01",
+                "elapsed": "\uee04"
+            },
+            "color": {
+                "total": null
+            }
+        },
+        "percent": {
+            "type": [
+                "bar",
+                "bar-monochrome"
+            ]
+        }
+        },
+    "modules": [
+	{
+            "type": "title",
+            "keyWidth": 10
+        },
+         {
+            "type": "custom",
+            "format": "\u001b[90mVI  \u001b[31mVI  \u001b[32mVI  \u001b[33mVI  \u001b[34mVI  \u001b[35mVI  \u001b[36mVI  \u001b[37mVI "
+        },
+        {
+            "type": "command",
+            "key": " ",
+            "keyColor": "34",  // = color4
+            "text": "version=$(omarchy-version); echo \"Omarchy $version\"",
+        },
+        {
+            "type": "command",
+            "key": "\ue900 ",
+            "keyColor":"34",
+            "text": "channel=$(omarchy-version-channel); echo \"$channel\""
+        },
+        {
+            "type": "kernel",
+            "key": " ",
+            "keyColor": "34",
+        },
+          {
+            "type": "cpu",
+             "key": " ",
+             "keyColor": "34",
+           },
+          {
+            "type": "gpu",
+             "format": "{name}",
+             "key": "󰾲 ",
+             "keyColor": "34",
+           },
+          {
+            "type": "display",
+             "key": "󰍹 ",
+             "keyColor": "34",
+           },           
+
+          {
+            "type": "memory",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "swap",
+            "key": "󰓡 ",
+            "keyColor": "34",
+        },
+        {
+            "type": "disk",
+            "folders": "/",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "battery",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "packages",
+            //"format": "{} (pacman)",
+            "key": " ",
+            "keyColor": "34",  
+        },
+        {
+            "type": "shell",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "terminal",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "wm",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "command",
+            "key": " ",
+            "keyColor": "34",
+            "text": "theme=$(omarchy-theme-current); echo -e \"$theme \\e[38m●\\e[37m●\\e[36m●\\e[35m●\\e[34m●\\e[33m●\\e[32m●\\e[31m●\"",
+        },
+        {
+            "type": "icons",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "terminalfont",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "uptime",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        {
+             "type": "command",
+             "key": "󱦟 ",
+             "keyColor": "34",
+             "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days",
+        },
+        {
+            "type": "media",
+            "key": "󰝚 ",
+            "keyColor": "34", 
+        },
+        {
+            "type": "player",
+            "key": " ",
+            "keyColor": "34", 
+        },
+                {
+            "type": "localip",
+            "key": "󰩟 ",
+            "keyColor": "34",
+            "compact": true
+        },
+        {
+            "type": "wifi",
+            "key": " ",
+            "keyColor": "34",
+            "format": "{ssid}"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[90mVI  \u001b[31mVI  \u001b[32mVI  \u001b[33mVI  \u001b[34mVI  \u001b[35mVI  \u001b[36mVI  \u001b[37mVI "
+        },
+    ]
+}
